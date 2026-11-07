@@ -1,0 +1,67 @@
+name: njangisave
+description: "NjangiSave — Save little by little today, so you are financially ready when your Njangi contribution is due."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+
+  # 1. State Management (Riverpod 2.6.x + Code Generation Annotations)
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+
+  # 2. Navigation & Routing (GoRouter 14.x with clean path URL strategy)
+  go_router: ^14.6.2
+
+  # 3. Networking & API (Dio 5.7.x with unified auth & refresh interceptors)
+  dio: ^5.7.0
+
+  # 4. Persistence & Local Storage
+  shared_preferences: ^2.3.3
+  flutter_secure_storage: ^10.3.4
+  hive_ce: ^2.8.0
+
+  # 5. Cross-Platform File Handling & Pickers (Raw Uint8List bytes)
+  file_picker: ^8.1.6
+
+  # 6. Typography, Formatting, Web Interop & External Payment Launching
+  google_fonts: ^6.2.1
+  intl: ^0.20.2
+  url_launcher: ^6.3.1
+  web: ^1.1.0
+  uuid: ^4.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  riverpod_generator: ^2.6.2
+  build_runner: ^2.4.13
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/phosphor/
+    - assets/fonts/phosphor/
+    - assets/images/
+
+  fonts:
+    - family: PhosphorRegular
+      fonts:
+        - asset: assets/fonts/phosphor/Phosphor-Regular.ttf
+    - family: PhosphorBold
+      fonts:
+        - asset: assets/fonts/phosphor/Phosphor-Bold.ttf
+    - family: PhosphorFill
+      fonts:
+        - asset: assets/fonts/phosphor/Phosphor-Fill.ttf
+    - family: PhosphorLight
+      fonts:
+        - asset: assets/fonts/phosphor/Phosphor-Light.ttf
