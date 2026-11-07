@@ -71,8 +71,8 @@ class DefaultSavingsLockService implements SavingsLockService {
             ? 'Contribution Matured — Ready for Release'
             : 'Flexible Goal — Withdrawal Permitted',
         explanation: isMatured
-            ? 'Your Njangi contribution date (${AppFormatters.formatDate(goal.dueDate)}) has been reached. You can now release your ${AppFormatters.formatCurrency(goal.amountSaved)} via Fapshi Payout.'
-            : 'This goal is set to flexible mode. You may release your saved funds via Fapshi Payout at any time.',
+            ? 'Your Njangi contribution date (${AppFormatters.formatDate(goal.dueDate)}) has been reached. You can now release your ${AppFormatters.formatCurrency(goal.amountSaved)} to your mobile money account.'
+            : 'This goal is set to flexible mode. You may release your saved funds to your mobile money account at any time.',
       );
     }
 
@@ -113,7 +113,7 @@ class DefaultSavingsLockService implements SavingsLockService {
 
   @override
   String getCustodyDisclosure() {
-    return 'Financial Safety Disclosure: Locking a goal in NjangiSave records a binding commitment rule on your account. Actual fund custody, settlement, and payout enforcement are executed server-side through our verified Fapshi payment integration and licensed financial partners.';
+    return 'Financial Safety Disclosure: Locking a goal in NjangiSave records a binding commitment rule on your account. Actual fund custody, settlement, and payout enforcement are executed server-side through our verified payment integration and licensed financial partners.';
   }
 }
 

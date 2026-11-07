@@ -69,7 +69,7 @@ class GoalDetailsScreen extends ConsumerWidget {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Release Njangi Savings via Fapshi'),
+        title: const Text('Release Njangi Savings'),
         content: Text(
           'Send ${AppFormatters.formatCurrency(goal.amountSaved)} from "${goal.name}" to your verified Mobile Money account ($userPhone)?',
         ),
@@ -103,7 +103,7 @@ class GoalDetailsScreen extends ConsumerWidget {
       SnackBar(
         content: Text(
           result.message ??
-              'Fapshi payout (${result.transId}) status: ${result.status.fapshiStatusCode}',
+              'Payout (${result.transId}) status: ${result.status.fapshiStatusCode}',
         ),
         behavior: SnackBarBehavior.floating,
         backgroundColor: result.success
@@ -389,7 +389,7 @@ class GoalDetailsScreen extends ConsumerWidget {
                             _handlePayoutRelease(context, ref, goal),
                         icon: const Icon(PhosphorIcons.uploadSimple, size: 18),
                         label: Text(
-                          'Release ${AppFormatters.formatCurrency(goal.amountSaved)} via Fapshi Payout',
+                          'Release ${AppFormatters.formatCurrency(goal.amountSaved)} to Mobile Money',
                         ),
                       ),
                     ),
@@ -476,7 +476,7 @@ class GoalDetailsScreen extends ConsumerWidget {
                   border: Border.all(color: AppColors.border),
                 ),
                 child: Text(
-                  'No deposits yet for this goal. Tap Deposit above to make your first contribution via Fapshi.',
+                  'No deposits yet for this goal. Tap Deposit above to make your first contribution.',
                   style: textTheme.bodyMedium,
                 ),
               )

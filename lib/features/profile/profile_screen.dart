@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/theme/app_colors.dart';
-import '../../core/constants/app_constants.dart';
 import '../../core/services/platform_file_service.dart';
 import '../../core/widgets/njangi_background.dart';
 import '../../core/widgets/phosphor_icon.dart';
@@ -324,25 +323,6 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                     subtitle: 'Require verification when opening Njangiva',
                     value: _biometricLock,
                     onChanged: (v) => setState(() => _biometricLock = v),
-                  ),
-                  const Divider(
-                    height: 1,
-                    thickness: 1,
-                    color: AppColors.border,
-                  ),
-                  _buildNavRow(
-                    icon: PhosphorIcons.creditCard,
-                    title: 'Fapshi payment gateway',
-                    subtitle: 'Payment service status',
-                    onTap: () {
-                      _showInfoDialog(
-                        'Fapshi Payment Gateway',
-                        'Status: Active & Operational\n'
-                            'Environment: ${AppConstants.fapshiEnvironment.toUpperCase()}\n'
-                            'Connected to MTN Cameroon & Orange Money Cameroon.\n'
-                            'Webhooks & Idempotency: Enforced.',
-                      );
-                    },
                   ),
                 ],
               ),

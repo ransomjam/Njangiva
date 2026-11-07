@@ -19,7 +19,7 @@ class NotificationsController extends StateNotifier<List<AppNotification>> {
       ),
       AppNotification(
         id: 'notif_02',
-        title: 'Fapshi Deposit Verified',
+        title: 'Deposit Verified',
         body:
             '35,000 FCFA deposit toward Monthly Njangi was verified (Ref: FP89K2M1A).',
         createdAt: now.subtract(const Duration(days: 2)),
@@ -57,9 +57,9 @@ class NotificationsController extends StateNotifier<List<AppNotification>> {
   }) {
     final item = AppNotification(
       id: 'notif_${DateTime.now().millisecondsSinceEpoch}',
-      title: 'Fapshi Deposit Verified ✓',
+      title: 'Deposit Verified ✓',
       body:
-          '${AppFormatters.formatCurrency(amountFcfa)} added to "$goalName" (Fapshi Ref: $transId).',
+          '${AppFormatters.formatCurrency(amountFcfa)} added to "$goalName" (Ref: $transId).',
       createdAt: DateTime.now(),
       type: AppNotificationType.depositVerified,
       isRead: false,

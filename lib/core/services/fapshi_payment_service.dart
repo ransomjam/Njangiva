@@ -138,7 +138,7 @@ class AfrodocsFapshiPaymentService implements FapshiPaymentService {
         transId: '',
         externalId: '',
         amount: amountFcfa,
-        message: 'Minimum Fapshi payment amount is 100 FCFA (XAF).',
+        message: 'Minimum deposit amount is 100 FCFA (XAF).',
       );
     }
 
@@ -175,7 +175,7 @@ class AfrodocsFapshiPaymentService implements FapshiPaymentService {
           amount: amountFcfa,
           checkoutLink: link,
           message:
-              'Payment initiated via Fapshi. Complete prompt on $payerPhone.',
+              'Payment initiated. Complete prompt on $payerPhone.',
         );
       }
     } on ApiException {
@@ -193,8 +193,8 @@ class AfrodocsFapshiPaymentService implements FapshiPaymentService {
       checkoutLink: 'https://sandbox.fapshi.com/pay/$sandboxTransId',
       isSandboxSimulated: true,
       message:
-          'Fapshi Sandbox session created (Ref: $sandboxTransId). '
-          'Awaiting server/webhook verification — pending deposits are not credited until verified.',
+          'Payment session created (Ref: $sandboxTransId). '
+          'Awaiting verification — pending deposits are not credited until verified.',
     );
   }
 
@@ -209,7 +209,7 @@ class AfrodocsFapshiPaymentService implements FapshiPaymentService {
         status: TransactionStatus.failed,
         amount: 0,
         verifiedByServer: false,
-        message: 'Invalid Fapshi transaction ID format ($transId).',
+        message: 'Invalid transaction ID format ($transId).',
       );
     }
 
@@ -232,7 +232,7 @@ class AfrodocsFapshiPaymentService implements FapshiPaymentService {
           verifiedByServer: true,
           message:
               response['message']?.toString() ??
-              'Verified with Fapshi (${status.fapshiStatusCode}).',
+              'Payment verified (${status.fapshiStatusCode}).',
         );
       } catch (_) {
         // When offline or in local sandbox mode without a live backend, default to
@@ -248,13 +248,13 @@ class AfrodocsFapshiPaymentService implements FapshiPaymentService {
       verifiedByServer: true,
       message: switch (outcome) {
         TransactionStatus.successful =>
-          'Fapshi Sandbox verified transaction $transId as SUCCESSFUL.',
+          'Transaction $transId verified as SUCCESSFUL.',
         TransactionStatus.pending =>
-          'Fapshi Sandbox reports transaction $transId is still PENDING.',
+          'Transaction $transId is still PENDING.',
         TransactionStatus.failed =>
-          'Fapshi Sandbox reports transaction $transId FAILED.',
+          'Transaction $transId FAILED.',
         TransactionStatus.expired =>
-          'Fapshi Sandbox reports transaction $transId EXPIRED.',
+          'Transaction $transId EXPIRED.',
       },
     );
   }
@@ -301,7 +301,7 @@ class AfrodocsFapshiPaymentService implements FapshiPaymentService {
         status: TransactionStatus.successful,
         amount: amountFcfa,
         message:
-            'Authorised Fapshi Sandbox payout ($transId) verified and released to $recipientPhone.',
+            'Authorised payout ($transId) verified and released to $recipientPhone.',
       );
     }
   }

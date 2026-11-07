@@ -86,7 +86,7 @@ class PlatformFileService {
       )
       ..writeln('Savings Lock       : ${goal.lockStatus.label}')
       ..writeln('----------------------------------------------------')
-      ..writeln('VERIFIED FAPSHI TRANSACTIONS:')
+      ..writeln('VERIFIED TRANSACTIONS:')
       ..writeln('----------------------------------------------------');
 
     if (transactions.isEmpty) {

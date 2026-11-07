@@ -10,7 +10,7 @@ import '../../core/widgets/phosphor_icon.dart';
 /// Deposit Successful Screen matching exact UI reference (Image 3):
 /// - Back button & centered "Deposit Successful" header
 /// - Concentric blue circles hero with white checkmark
-/// - Details card with: Amount, Savings goal, Fapshi reference + copy button,
+/// - Details card with: Amount, Savings goal, Transaction reference + copy button,
 ///   Date & time, Status (✓ Successful)
 /// - "Back to Goal" primary button & "View Receipt" outline button
 class DepositSuccessfulScreen extends StatelessWidget {
@@ -189,7 +189,7 @@ class DepositSuccessfulScreen extends StatelessWidget {
                   ),
                   _buildDetailRow(
                     icon: PhosphorIcons.receipt,
-                    label: 'Fapshi reference',
+                    label: 'Transaction reference',
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [

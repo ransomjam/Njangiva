@@ -284,7 +284,7 @@ class _OnboardingPageTwo extends StatelessWidget {
                 stepNumber: '2',
                 icon: PhosphorIcons.coins,
                 title: 'Save gradually',
-                subtitle: 'Deposit via MTN MoMo or Orange Money via Fapshi.',
+                subtitle: 'Deposit via MTN MoMo or Orange Money.',
                 accentColor: AppColors.cyan,
                 showConnectorDown: true,
               ),

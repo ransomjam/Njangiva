@@ -18,10 +18,9 @@ import 'deposit_successful_screen.dart';
 /// - Goal card with Users icon, "Monthly Njangi", deadline, and 3-column stats:
 ///   Saved so far, Target amount, Remaining (in bright blue)
 /// - Deposit amount field with coins icon, FCFA suffix, and 4 quick amount chips (10,000 selected)
-/// - Payment method section with "Powered by Fapshi", MTN Mobile Money (selected) and Orange Money
+/// - Payment method section with MTN Mobile Money (selected) and Orange Money
 /// - Mobile money number field (+237 6 78 12 34 56)
-/// - Info banner: "You will be redirected to Fapshi to complete your payment securely."
-/// - Lock icon + "Continue to Fapshi  →" CTA
+/// - Lock icon + "Deposit Now  →" CTA
 class MakeDepositScreen extends ConsumerStatefulWidget {
   const MakeDepositScreen({super.key, this.initialGoalId});
 
@@ -69,7 +68,7 @@ class _MakeDepositScreenState extends ConsumerState<MakeDepositScreen> {
     });
   }
 
-  Future<void> _handleContinueToFapshi(SavingsGoal goal) async {
+  Future<void> _handleContinueToPayment(SavingsGoal goal) async {
     setState(() => _isProcessing = true);
 
     final amount = _parsedAmount;
@@ -475,43 +474,13 @@ class _MakeDepositScreenState extends ConsumerState<MakeDepositScreen> {
               const SizedBox(height: 22),
 
               // 4. Payment Method Section
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Payment method',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.darkNavy,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      const Text(
-                        'Powered by ',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: AppColors.secondaryText,
-                        ),
-                      ),
-                      const Icon(
-                        PhosphorIcons.arrowsLeftRight,
-                        size: 13,
-                        color: AppColors.primaryBlue,
-                      ),
-                      const SizedBox(width: 3),
-                      const Text(
-                        'Fapshi',
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.primaryBlue,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+              const Text(
+                'Payment method',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.darkNavy,
+                ),
               ),
               const SizedBox(height: 10),
 
@@ -622,49 +591,16 @@ class _MakeDepositScreenState extends ConsumerState<MakeDepositScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
-
-              // 6. Redirection Info Banner
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 14,
-                  vertical: 12,
-                ),
-                decoration: BoxDecoration(
-                  color: AppColors.lightBlue,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: const Row(
-                  children: [
-                    Icon(
-                      PhosphorIcons.info,
-                      size: 16,
-                      color: AppColors.primaryBlue,
-                    ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Text(
-                        'You will be redirected to Fapshi to complete your payment securely.',
-                        style: TextStyle(
-                          fontSize: 12.5,
-                          color: AppColors.darkNavy,
-                          height: 1.3,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
               const SizedBox(height: 24),
 
-              // 7. CTA Button: Lock Icon + "Continue to Fapshi  →"
+              // 6. CTA Button: Lock Icon + "Deposit Now  →"
               SizedBox(
                 width: double.infinity,
                 height: 54,
                 child: ElevatedButton(
                   onPressed: _isProcessing
                       ? null
-                      : () => _handleContinueToFapshi(selectedGoal),
+                      : () => _handleContinueToPayment(selectedGoal),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primaryBlue,
                     foregroundColor: Colors.white,
@@ -688,7 +624,7 @@ class _MakeDepositScreenState extends ConsumerState<MakeDepositScreen> {
                             Icon(PhosphorIcons.lock, size: 18),
                             SizedBox(width: 10),
                             Text(
-                              'Continue to Fapshi',
+                              'Deposit Now',
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
